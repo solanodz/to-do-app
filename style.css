@@ -15,7 +15,7 @@
 }
 
 html body{
-    background-color: var(--light-blue);
+    background-color: var(--white);
     height: 100vh;
 }
 
@@ -41,6 +41,7 @@ span{
     color: var(--blue);
     font-size: 15px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 #fecha{
@@ -50,41 +51,45 @@ span{
 
 /* AGREGAR TAREA */
 
-.agregar-tarea{
-    background-color: var(--white);
-    border-radius: 15px;
+div.agregar-tarea{
+    background-color: var(--light-blue);
+    border: solid 2px var(--black);
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    margin: 10px 0 40px 0;
+    margin: 10px 0 20px 0;
     gap: 70px;
+    box-shadow: -4px -4px 0px 0px #1e1e1e;
 }
 
 .agregar-tarea input{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
     border: none;
-    background-color: var(--white);
+    padding: 0 5px;
+    background-color: var(--light-blue);
+    font-weight: 500;
+    color: var(--black);
 }
 
 .agregar-tarea i{
     font-size: 30px;
-    color: var(--blue);
+    color: var(--black);
 
 }
 
 .agregar-tarea i:hover{
     transform: scale(1.2);
     cursor: pointer;
-
+    color: var(--blue);
 }
 
 .agregar-tarea input::placeholder{
     color: var(--black);
-    font-weight: 500;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* SECCION TAREA */
@@ -93,17 +98,25 @@ span{
     color: var(--black);
     margin-bottom: 20px;
     font-size: 18px;
-    font-weight: 600 ;
+    font-weight: 600;
+    padding: 5px
 }
-
+.seccion-tarea{
+    padding: 15px;
+    border: solid 2px var(--black);
+    box-shadow: -4px -4px 0px 0px #1e1e1e;
+    background-color: var(--light-blue);
+}
 .seccion-tarea li{
     display: flex;
     background-color: var(--blue);
-    border-radius: 15px;
+    /* border-radius: 15px; */
     padding: 10px;
     align-items: center;
     justify-content: space-between;
-    margin: 5px 0;
+    margin: 8px 0;
+    border: solid 2px var(--black);
+    /* box-shadow: -4px -4px 0px 0px #1e1e1e; */
 }
 
 .seccion-tarea i{
