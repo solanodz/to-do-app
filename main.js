@@ -46,16 +46,12 @@ actualizarSaludo();
 console.log("El nombre guardado en localStorage es: " + nombreGuardado); */
 
 
-
-
-
-
-
-
-
 // Creacion de fecha
 const date = new Date();
 fecha.innerHTML = date.toLocaleDateString('es-AR', { weekday: 'long', month: 'short', day: 'numeric' })
+
+
+// Poner la fecha con Luxon
 
 
 
@@ -64,12 +60,8 @@ function agregarTarea(tarea, id, realizado, eliminado) {
 
     if (eliminado) { return }
 
-
     const REALIZADO = realizado ? check : uncheck;
     const LINE = realizado ? lineTrough : '';
-
-
-
 
     const elemento = `
     <li id="elemento">
@@ -112,6 +104,15 @@ botonEnter.addEventListener('click', () => {
     input.value = '';
     id++;
     console.log(LIST);
+    Toastify({
+        text: 'Nueva tarea agregada',
+        duration: 3000,  // Duración en milisegundos
+        gravity: 'top',  // Posición de la alerta ('top', 'bottom', 'left', 'right')
+        position: 'right',
+        style: {
+            background: '#329432',
+        }
+    }).showToast();
 })
 
 document.addEventListener('keyup', function (event) {
@@ -130,10 +131,20 @@ document.addEventListener('keyup', function (event) {
         input.value = '';
         id++;
         console.log(LIST)
+        Toastify({
+            text: 'Nueva tarea agregada',
+            duration: 3000,  // Duración en milisegundos
+            gravity: 'top',  // Posición de la alerta ('top', 'bottom', 'left', 'right')
+            position: 'right',
+            style: {
+                background: '#329432',
+            }
+        }).showToast();
     }
+
 })
 
-lista.addEventListener('click', function (event) {
+/* lista.addEventListener('click', function (event) {
     const element = event.target;
     const elementData = element.attributes.data.value
     if (elementData === 'realizado') {
@@ -142,7 +153,27 @@ lista.addEventListener('click', function (event) {
         tareaEliminada(element)
     }
     localStorage.setItem('TODO', JSON.stringify(LIST))
-})
+}) */
+
+lista.addEventListener('click', function (event) {
+    const element = event.target;
+    const elementData = element.attributes.data.value
+    if (elementData === 'realizado') {
+        tareaRealizada(element);
+    } else if (elementData === 'eliminado') {
+        tareaEliminada(element);
+        Toastify({
+            text: 'Tarea eliminada',
+            duration: 3000,  // Duración en milisegundos
+            gravity: 'top',  // Posición de la alerta ('top', 'bottom', 'left', 'right')
+            position: 'right',
+            style: {
+                background: '#b12e2e',
+            }
+        }).showToast();
+    }
+    localStorage.setItem('TODO', JSON.stringify(LIST));
+});
 
 
 
