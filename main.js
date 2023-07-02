@@ -6,8 +6,8 @@ const botonEnter = document.querySelector('#enter');
 const check = 'fa-check-circle';
 const uncheck = 'fa-circle';
 const lineTrough = 'line-trough';
-let id
-let LIST
+let id;
+let LIST;
 
 // Funcion para introducir el nombre y saludo.
 function actualizarSaludo() {
@@ -32,7 +32,14 @@ function actualizarSaludo() {
             saludo.textContent = `Hola,  ${nombre} 👋🏽`;
         } else {
             // Mostrar un mensaje de error si no se ingresó un nombre
-            alert("No ingresaste tu nombre. ¡Inténtalo de nuevo!");
+            Swal.fire({
+                icon: 'error',
+                iconColor: '#b12e2e',
+                title: 'Error',
+                text: 'Recuerda escribir tu nombre.',
+                confirmButtonColor: 'black',
+            })
+            actualizarSaludo();
         }
     }
 }
@@ -49,7 +56,6 @@ console.log("El nombre guardado en localStorage es: " + nombreGuardado); */
 // Creacion de fecha
 const date = new Date();
 fecha.innerHTML = date.toLocaleDateString('es-AR', { weekday: 'long', month: 'short', day: 'numeric' })
-
 
 // Poner la fecha con Luxon
 
@@ -105,7 +111,7 @@ botonEnter.addEventListener('click', () => {
     id++;
     console.log(LIST);
     Toastify({
-        text: 'Nueva tarea agregada',
+        text: 'Tarea agregada',
         duration: 3000,  // Duración en milisegundos
         gravity: 'top',  // Posición de la alerta ('top', 'bottom', 'left', 'right')
         position: 'right',
@@ -132,7 +138,7 @@ document.addEventListener('keyup', function (event) {
         id++;
         console.log(LIST)
         Toastify({
-            text: 'Nueva tarea agregada',
+            text: 'Tarea agregada',
             duration: 3000,  // Duración en milisegundos
             gravity: 'top',  // Posición de la alerta ('top', 'bottom', 'left', 'right')
             position: 'right',
